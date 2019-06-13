@@ -2,15 +2,22 @@
 <layout xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
+            name="key"
+            type="com.example.iaia.sampleandroidapplication.model.ItemKey" />
+        <variable
             name="title"
             type="String" />
+        <variable
+            name="viewModel"
+            type="com.example.iaia.sampleandroidapplication.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(_) -> viewModel.onClickItem(key)}">
 
         <TextView
             android:layout_width="wrap_content"

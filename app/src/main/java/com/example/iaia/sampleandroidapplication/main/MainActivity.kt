@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.iaia.sampleandroidapplication.R
+import com.example.iaia.sampleandroidapplication.camera.CameraActivity
 import com.example.iaia.sampleandroidapplication.databinding.ActivityMainBinding
 import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -24,10 +25,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
-        controller = ItemController()
+        controller = ItemController(viewModel)
         binding.ervMain.adapter = controller.adapter
         viewModel.items.observe(this, Observer {
             controller.setData(it)
+        })
+        viewModel.command.observe(this, Observer {
+            when(it) {
+                Command.GoToCamera -> startActivity(CameraActivity.createIntent(this))
+            }
         })
 
         viewModel.init()
