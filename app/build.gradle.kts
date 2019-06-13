@@ -34,11 +34,15 @@ dependencies {
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Deps.kotlin_version}")
-    implementation("androidx.appcompat:appcompat:1.0.2")
+    implementation("androidx.appcompat:appcompat:1.1.0-alpha05")
     implementation("androidx.core:core-ktx:1.0.2")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01")
     implementation("android.arch.lifecycle:extensions:1.1.1")
+
+    // camerax
+    implementation("androidx.camera:camera-core:${Deps.camerax_version}")
+    implementation("androidx.camera:camera-camera2:${Deps.camerax_version}")
 
     // room
     implementation("androidx.room:room-runtime:${Deps.room_version}")
@@ -60,6 +64,11 @@ dependencies {
     implementation("org.koin:koin-androidx-scope:${Deps.koin_version}")
     implementation("org.koin:koin-androidx-viewmodel:${Deps.koin_version}")
     implementation("org.koin:koin-androidx-ext:${Deps.koin_version}")
+
+    // permission dispatcher
+    implementation("org.permissionsdispatcher:permissionsdispatcher:${Deps.permission_dispatcher_version}")
+    kapt("org.permissionsdispatcher:permissionsdispatcher-processor:${Deps.permission_dispatcher_version}")
+
 
     // TODO: あとで入れるか考える
     // leakcanary, retrofit, crashlytics, espresso
