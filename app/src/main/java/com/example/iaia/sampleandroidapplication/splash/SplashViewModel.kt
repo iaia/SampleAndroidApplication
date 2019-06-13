@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashViewModel: ViewModel() {
+class SplashViewModel : ViewModel() {
     val command = MutableLiveData<Command>()
     val message = MutableLiveData<String>().apply {
         postValue("SPLASH")

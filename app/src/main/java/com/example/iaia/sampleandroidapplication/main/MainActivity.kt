@@ -2,14 +2,13 @@ package com.example.iaia.sampleandroidapplication.main
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.iaia.sampleandroidapplication.R
 import com.example.iaia.sampleandroidapplication.camera.CameraActivity
 import com.example.iaia.sampleandroidapplication.databinding.ActivityMainBinding
-import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             controller.setData(it)
         })
         viewModel.command.observe(this, Observer {
-            when(it) {
+            when (it) {
                 Command.GoToCamera -> startActivity(CameraActivity.createIntent(this))
             }
         })

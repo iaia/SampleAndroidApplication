@@ -28,7 +28,12 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private val model: CameraViewModel by viewModel()
-    private val binding by lazy { DataBindingUtil.setContentView<ActivityCameraBinding>(this, R.layout.activity_camera) }
+    private val binding by lazy {
+        DataBindingUtil.setContentView<ActivityCameraBinding>(
+            this,
+            R.layout.activity_camera
+        )
+    }
     private val viewFinder by lazy { binding.viewFinder }
 
     override fun onCreate(savedInstanceState: Bundle?) {
