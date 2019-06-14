@@ -7,8 +7,8 @@ class UserRepositoryImpl(
     private val exampleService: ExampleService
 ) : UserRepository {
     override suspend fun me(): User {
-        exampleService.meAsync().await().apply {
-            return this
+        exampleService.meAsync().body().apply {
+            return this ?: User(0, "xxx")
         }
     }
 }

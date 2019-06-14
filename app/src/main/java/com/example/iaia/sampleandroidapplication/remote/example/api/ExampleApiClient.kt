@@ -1,14 +1,45 @@
-package com.example.iaia.sampleandroidapplication.remote.api.example
+package com.example.iaia.sampleandroidapplication.remote.example.api
 
+import android.content.Context
 import com.example.iaia.sampleandroidapplication.BuildConfig
-import com.example.iaia.sampleandroidapplication.remote.example.api.ExampleService
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType
 import retrofit2.Retrofit
+import retrofit2.mock.MockRetrofit
+import retrofit2.mock.NetworkBehavior
+import java.util.concurrent.TimeUnit
 
-class ExampleApiClient {
-    companion object {
-        fun build(): ExampleService = Retrofit.Builder().let {
-            it.baseUrl(BuildConfig.API_BASE_URL)
-            it.build()
-        }.create(ExampleService::class.java)
+object ExampleApiClient {
+    fun build(): ExampleService {
+        return buildRetrofit().create(ExampleService::class.java)
+    }
+
+    fun buildMock(context: Context): ExampleService {
+        val builder = buildRetrofit()
+
+        val behavior = NetworkBehavior.create().apply {
+            setDelay(100, TimeUnit.MILLISECONDS)
+            setFailurePercent(0)
+            setErrorPercent(0)
+        }
+
+        val mockRetrofit = MockRetrofit.Builder(builder).run {
+            networkBehavior(behavior)
+            build()
+        }
+
+        val delegate = mockRetrofit.create(ExampleService::class.java)
+        return MockExampleService(delegate, context)
+    }
+
+    private fun buildRetrofit(): Retrofit {
+        val contentType = MediaType.parse("application/json")!!
+        val json = Json.nonstrict
+        return Retrofit.Builder().run {
+            addConverterFactory(json.asConverterFactory(contentType))
+            baseUrl(BuildConfig.API_BASE_URL)
+            build()
+        }
     }
 }

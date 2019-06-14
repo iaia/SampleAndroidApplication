@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
+    id("kotlinx-serialization")
     id("com.google.android.gms.oss-licenses-plugin")
 }
 
@@ -83,6 +84,11 @@ dependencies {
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:${Deps.retrofit_version}")
     implementation("com.squareup.retrofit2:retrofit-mock:${Deps.retrofit_version}")
+
+    // kotlin-serialization
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Deps.kotlin_version}")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.11.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.4.0")
 
     // TODO: あとで入れるか考える
     // leakcanary, retrofit, crashlytics, espresso

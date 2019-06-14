@@ -16,7 +16,9 @@ class MyApplication : Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
-                    viewModelModule, mockApiModule, repositoryModule
+                    viewModelModule,
+                    if (BuildConfig.DEBUG) mockApiModule else mockApiModule,
+                    repositoryModule
                 )
             )
         }
