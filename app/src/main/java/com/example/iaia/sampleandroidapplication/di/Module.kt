@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.module
+package com.example.iaia.sampleandroidapplication.di
 
 import com.example.iaia.sampleandroidapplication.camera.CameraViewModel
 import com.example.iaia.sampleandroidapplication.main.MainViewModel

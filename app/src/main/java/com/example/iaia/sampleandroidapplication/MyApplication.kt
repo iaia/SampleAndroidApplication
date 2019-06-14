@@ -1,7 +1,7 @@
 package com.example.iaia.sampleandroidapplication
 
 import android.app.Application
-import com.example.iaia.sampleandroidapplication.module.appModule
+import com.example.iaia.sampleandroidapplication.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
