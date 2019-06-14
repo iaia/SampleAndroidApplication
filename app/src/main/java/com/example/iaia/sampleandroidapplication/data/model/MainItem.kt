@@ -11,5 +11,6 @@ enum class ItemKey {
     List,
     ExoPlayer,
     Chat,
+    Settings,
     License
 }

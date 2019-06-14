@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".settings.SettingsActivity">
+        </activity>
         <activity
             android:name=".splash.SplashActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
@@ -29,17 +30,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".main.MainActivity" />
-
         <activity
             android:name=".camera.CameraActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".main.MainActivity">
-
+            android:parentActivityName=".main.MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".main.MainActivity" />
         </activity>
     </application>
+
 </manifest>

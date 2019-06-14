@@ -20,6 +20,7 @@ class MainViewModel : ViewModel() {
             when (key) {
                 ItemKey.Camera -> Command.GoToCamera
                 ItemKey.License -> Command.GoToLicense
+                ItemKey.Settings -> Command.GoToSettings
                 else -> Command.GoToFragments
             }
         )
@@ -30,4 +31,5 @@ sealed class Command {
     object GoToCamera : Command()
     object GoToFragments : Command()
     object GoToLicense : Command()
+    object GoToSettings : Command()
 }
