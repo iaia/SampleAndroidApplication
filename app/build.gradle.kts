@@ -74,6 +74,10 @@ dependencies {
     // license
     implementation("com.google.android.gms:play-services-oss-licenses:16.0.2")
 
+    // retrofit
+    implementation("com.squareup.retrofit2:retrofit:${Deps.retrofit_version}")
+    implementation("com.squareup.retrofit2:retrofit-mock:${Deps.retrofit_version}")
+
     // TODO: あとで入れるか考える
     // leakcanary, retrofit, crashlytics, espresso
 }
