@@ -19,6 +19,7 @@ class MainViewModel : ViewModel() {
         command.postValue(
             when (key) {
                 ItemKey.Camera -> Command.GoToCamera
+                ItemKey.License -> Command.GoToLicense
                 else -> Command.GoToFragments
             }
         )
@@ -28,4 +29,5 @@ class MainViewModel : ViewModel() {
 sealed class Command {
     object GoToCamera : Command()
     object GoToFragments : Command()
+    object GoToLicense : Command()
 }

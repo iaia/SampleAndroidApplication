@@ -3,6 +3,8 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
+
+    id("com.google.android.gms.oss-licenses-plugin")
 }
 
 android {
@@ -69,6 +71,8 @@ dependencies {
     implementation("org.permissionsdispatcher:permissionsdispatcher:${Deps.permission_dispatcher_version}")
     kapt("org.permissionsdispatcher:permissionsdispatcher-processor:${Deps.permission_dispatcher_version}")
 
+    // license
+    implementation("com.google.android.gms:play-services-oss-licenses:16.0.2")
 
     // TODO: あとで入れるか考える
     // leakcanary, retrofit, crashlytics, espresso

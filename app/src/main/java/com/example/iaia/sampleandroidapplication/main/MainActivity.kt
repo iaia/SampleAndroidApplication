@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.example.iaia.sampleandroidapplication.R
 import com.example.iaia.sampleandroidapplication.camera.CameraActivity
 import com.example.iaia.sampleandroidapplication.databinding.ActivityMainBinding
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.command.observe(this, Observer {
             when (it) {
                 Command.GoToCamera -> startActivity(CameraActivity.createIntent(this))
+                Command.GoToLicense -> startActivity(Intent(this, OssLicensesMenuActivity::class.java))
             }
         })
 
