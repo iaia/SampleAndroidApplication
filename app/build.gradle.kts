@@ -3,7 +3,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
-
     id("com.google.android.gms.oss-licenses-plugin")
 }
 
@@ -18,9 +17,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        getByName("debug") {
+            isDebuggable = true
+
+            buildConfigField("String", "API_BASE_URL", "\"http://dev.example.com/api/\"")
+        }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+
+            buildConfigField("String", "API_BASE_URL", "\"http://example.com/api/\"")
         }
     }
     dataBinding {
