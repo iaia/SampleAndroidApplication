@@ -1,7 +1,9 @@
 package com.example.iaia.sampleandroidapplication
 
 import android.app.Application
-import com.example.iaia.sampleandroidapplication.di.appModule
+import com.example.iaia.sampleandroidapplication.di.mockApiModule
+import com.example.iaia.sampleandroidapplication.di.repositoryModule
+import com.example.iaia.sampleandroidapplication.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -12,7 +14,11 @@ class MyApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MyApplication)
-            modules(appModule)
+            modules(
+                listOf(
+                    viewModelModule, mockApiModule, repositoryModule
+                )
+            )
         }
     }
 }

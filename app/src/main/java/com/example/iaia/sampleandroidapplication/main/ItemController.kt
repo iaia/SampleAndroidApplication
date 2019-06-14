@@ -1,8 +1,8 @@
 package com.example.iaia.sampleandroidapplication.main
 
 import com.airbnb.epoxy.TypedEpoxyController
+import com.example.iaia.sampleandroidapplication.data.model.MainItem
 import com.example.iaia.sampleandroidapplication.itemMain
-import com.example.iaia.sampleandroidapplication.model.MainItem
 
 class ItemController(
     val viewModel: MainViewModel

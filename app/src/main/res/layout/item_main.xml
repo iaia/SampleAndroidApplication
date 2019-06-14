@@ -3,7 +3,7 @@
     <data>
         <variable
             name="key"
-            type="com.example.iaia.sampleandroidapplication.model.ItemKey" />
+            type="com.example.iaia.sampleandroidapplication.data.model.ItemKey" />
         <variable
             name="title"
             type="String" />
