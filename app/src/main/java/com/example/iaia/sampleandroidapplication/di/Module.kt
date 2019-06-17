@@ -4,6 +4,7 @@ import com.example.iaia.sampleandroidapplication.camera.CameraViewModel
 import com.example.iaia.sampleandroidapplication.data.repository.UserRepository
 import com.example.iaia.sampleandroidapplication.data.repository.UserRepositoryImpl
 import com.example.iaia.sampleandroidapplication.main.MainViewModel
+import com.example.iaia.sampleandroidapplication.remote.example.api.DummyApiClient
 import com.example.iaia.sampleandroidapplication.remote.example.api.ExampleApiClient
 import com.example.iaia.sampleandroidapplication.settings.SettingsViewModel
 import com.example.iaia.sampleandroidapplication.splash.SplashViewModel
@@ -17,9 +18,16 @@ val viewModelModule = module {
     viewModel { SettingsViewModel(get()) }
 }
 
-val mockApiModule = module {
-    single { ExampleApiClient.buildMock(get()) }
+val apiModule = module {
+    single { DummyApiClient.build() }
+    single { ExampleApiClient.build() }
 }
+
+/*
+val mockApiModule = module {
+    single { DummyApiClient.buildMock(get()) }
+}
+*/
 
 val repositoryModule = module {
     single { UserRepositoryImpl(get()) as UserRepository }

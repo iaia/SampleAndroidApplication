@@ -38,7 +38,7 @@ object ExampleApiClient {
         val json = Json.nonstrict
         return Retrofit.Builder().run {
             addConverterFactory(json.asConverterFactory(contentType))
-            baseUrl(BuildConfig.API_BASE_URL)
+            baseUrl(BuildConfig.EXAMPLE_API_BASE_URL)
             build()
         }
     }

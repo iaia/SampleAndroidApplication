@@ -1,7 +1,7 @@
 package com.example.iaia.sampleandroidapplication
 
 import android.app.Application
-import com.example.iaia.sampleandroidapplication.di.mockApiModule
+import com.example.iaia.sampleandroidapplication.di.apiModule
 import com.example.iaia.sampleandroidapplication.di.repositoryModule
 import com.example.iaia.sampleandroidapplication.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +17,7 @@ class MyApplication : Application() {
             modules(
                 listOf(
                     viewModelModule,
-                    if (BuildConfig.DEBUG) mockApiModule else mockApiModule,
+                    if (BuildConfig.DEBUG) apiModule else apiModule,
                     repositoryModule
                 )
             )
