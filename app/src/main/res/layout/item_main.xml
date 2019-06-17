@@ -9,7 +9,7 @@
             type="String" />
         <variable
             name="viewModel"
-            type="com.example.iaia.sampleandroidapplication.main.MainViewModel" />
+            type="com.example.iaia.sampleandroidapplication.main.MainFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

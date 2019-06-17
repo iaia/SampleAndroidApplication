@@ -51,6 +51,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01")
     implementation("android.arch.lifecycle:extensions:1.1.1")
 
+    implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
+
     // camerax
     implementation("androidx.camera:camera-core:${Deps.camerax_version}")
     implementation("androidx.camera:camera-camera2:${Deps.camerax_version}")

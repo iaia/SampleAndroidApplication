@@ -4,6 +4,7 @@ import com.example.iaia.sampleandroidapplication.camera.CameraViewModel
 import com.example.iaia.sampleandroidapplication.data.repository.UserRepository
 import com.example.iaia.sampleandroidapplication.data.repository.UserRepositoryImpl
 import com.example.iaia.sampleandroidapplication.dummy.DummyViewModel
+import com.example.iaia.sampleandroidapplication.main.MainFragmentViewModel
 import com.example.iaia.sampleandroidapplication.main.MainViewModel
 import com.example.iaia.sampleandroidapplication.remote.example.api.DummyApiClient
 import com.example.iaia.sampleandroidapplication.remote.example.api.ExampleApiClient
@@ -18,6 +19,10 @@ val viewModelModule = module {
     viewModel { CameraViewModel() }
     viewModel { SettingsViewModel(get()) }
     viewModel { DummyViewModel() }
+}
+
+val fragmentViewModelModule = module {
+    viewModel { MainFragmentViewModel() }
 }
 
 val apiModule = module {

@@ -5,13 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
+import androidx.fragment.app.FragmentTransaction
 import com.example.iaia.sampleandroidapplication.R
-import com.example.iaia.sampleandroidapplication.camera.CameraActivity
 import com.example.iaia.sampleandroidapplication.databinding.ActivityMainBinding
-import com.example.iaia.sampleandroidapplication.dummy.DummyActivity
-import com.example.iaia.sampleandroidapplication.settings.SettingsActivity
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -22,25 +18,16 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModel()
     private val binding by lazy { DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main) }
 
-    private lateinit var controller: ItemController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
-        controller = ItemController(viewModel)
-        binding.ervMain.adapter = controller.adapter
-        viewModel.items.observe(this, Observer {
-            controller.setData(it)
-        })
-        viewModel.command.observe(this, Observer {
-            when (it) {
-                Command.GoToCamera -> startActivity(CameraActivity.createIntent(this))
-                Command.GoToLicense -> startActivity(Intent(this, OssLicensesMenuActivity::class.java))
-                Command.GoToSettings -> startActivity(SettingsActivity.createIntent(this))
-                Command.GoToDummy -> startActivity(DummyActivity.createIntent(this))
-            }
-        })
-
-        viewModel.init()
+        val fragment = MainFragment.newInstance()
+        supportFragmentManager.beginTransaction().let {
+            it.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            it.replace(binding.flContainer.id, fragment, fragment.javaClass.simpleName)
+            it.addToBackStack(null)
+            it.commit()
+        }
     }
 }
