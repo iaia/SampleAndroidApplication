@@ -21,6 +21,7 @@ class MainViewModel : ViewModel() {
                 ItemKey.Camera -> Command.GoToCamera
                 ItemKey.License -> Command.GoToLicense
                 ItemKey.Settings -> Command.GoToSettings
+                ItemKey.Dummy -> Command.GoToDummy
                 else -> Command.GoToFragments
             }
         )
@@ -32,4 +33,5 @@ sealed class Command {
     object GoToFragments : Command()
     object GoToLicense : Command()
     object GoToSettings : Command()
+    object GoToDummy : Command()
 }
