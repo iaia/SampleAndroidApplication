@@ -32,11 +32,6 @@
         </activity>
         <activity android:name=".main.MainActivity" />
 
-        <activity android:name=".dummy.DummyActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".main.MainActivity" />
-        </activity>
         <activity android:name=".settings.SettingsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

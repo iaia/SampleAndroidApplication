@@ -40,10 +40,6 @@ class CameraFragment : Fragment() {
     private var imageCapture: ImageCapture? = null
     private lateinit var viewFinder: TextureView
     private lateinit var displayManager: DisplayManager
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +47,11 @@ class CameraFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_camera, container, false)
 
+        return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         binding.viewModel = model
         viewFinder = binding.viewFinder
         displayManager = viewFinder.context
@@ -60,14 +61,12 @@ class CameraFragment : Fragment() {
                 Command.Capture -> capture()
             }
         })
-
-        return binding.root
+        showCameraWithPermissionCheck()
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         displayManager.registerDisplayListener(displayListener, null)
-        showCameraWithPermissionCheck()
     }
 
     override fun onDetach() {
