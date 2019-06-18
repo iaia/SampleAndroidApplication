@@ -14,7 +14,7 @@ import com.example.iaia.sampleandroidapplication.R
 import com.example.iaia.sampleandroidapplication.camera.CameraFragment
 import com.example.iaia.sampleandroidapplication.databinding.FragmentMainBinding
 import com.example.iaia.sampleandroidapplication.dummy.DummyFragment
-import com.example.iaia.sampleandroidapplication.settings.SettingsActivity
+import com.example.iaia.sampleandroidapplication.settings.SettingsFragment
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -57,7 +57,7 @@ class MainFragment : Fragment() {
             when (it) {
                 Command.GoToCamera -> CameraFragment.newInstance()
                 Command.GoToLicense -> startActivity(Intent(requireActivity(), OssLicensesMenuActivity::class.java))
-                Command.GoToSettings -> startActivity(SettingsActivity.createIntent(requireActivity()))
+                Command.GoToSettings -> SettingsFragment.newInstance()
                 Command.GoToDummy -> DummyFragment.newInstance()
             }
         })
