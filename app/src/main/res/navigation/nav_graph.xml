@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph" app:startDestination="@id/mainFragment">
 
+    <fragment android:id="@+id/mainFragment" android:name="com.example.iaia.sampleandroidapplication.main.MainFragment"
+        android:label="MainFragment">
+        <action android:id="@+id/action_mainFragment_to_cameraFragment" app:destination="@id/cameraFragment" />
+        <action android:id="@+id/action_mainFragment_to_settingsFragment" app:destination="@id/settingsFragment" />
+        <action android:id="@+id/action_mainFragment_to_dummyFragment" app:destination="@id/dummyFragment" />
+    </fragment>
+    <fragment android:id="@+id/cameraFragment"
+        android:name="com.example.iaia.sampleandroidapplication.camera.CameraFragment" android:label="CameraFragment" />
+    <fragment android:id="@+id/dummyFragment"
+        android:name="com.example.iaia.sampleandroidapplication.dummy.DummyFragment" android:label="DummyFragment" />
+    <fragment android:id="@+id/settingsFragment"
+        android:name="com.example.iaia.sampleandroidapplication.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

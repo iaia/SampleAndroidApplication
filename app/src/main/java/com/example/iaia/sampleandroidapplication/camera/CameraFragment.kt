@@ -30,10 +30,6 @@ import java.io.File
 
 @RuntimePermissions
 class CameraFragment : Fragment() {
-    companion object {
-        fun newInstance() = CameraFragment()
-    }
-
     private val model: CameraViewModel by viewModel()
     private lateinit var binding: FragmentCameraBinding
     private var preview: Preview? = null
@@ -54,23 +50,23 @@ class CameraFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         binding.viewModel = model
         viewFinder = binding.viewFinder
-        displayManager = viewFinder.context
-            .getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
         model.command.observe(this, Observer {
             when (it) {
                 Command.Capture -> capture()
             }
         })
+        displayManager = viewFinder.context.getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
         showCameraWithPermissionCheck()
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
+    override fun onResume() {
+        super.onResume()
         displayManager.registerDisplayListener(displayListener, null)
     }
 
-    override fun onDetach() {
-        super.onDetach()
+
+    override fun onPause() {
+        super.onPause()
         displayManager.unregisterDisplayListener(displayListener)
     }
 

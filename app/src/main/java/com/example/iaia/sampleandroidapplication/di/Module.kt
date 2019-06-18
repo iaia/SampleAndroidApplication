@@ -27,14 +27,11 @@ val fragmentViewModelModule = module {
 
 val apiModule = module {
     single { DummyApiClient.build() }
-    single { ExampleApiClient.build() }
 }
 
-/*
 val mockApiModule = module {
-    single { DummyApiClient.buildMock(get()) }
+    single { ExampleApiClient.buildMock(get()) }
 }
-*/
 
 val repositoryModule = module {
     single { UserRepositoryImpl(get()) as UserRepository }

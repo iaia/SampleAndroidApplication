@@ -10,9 +10,10 @@ class MockExampleService(
     private val context: Context
 ) : ExampleService {
     override suspend fun meAsync(): Response<User> {
-        //val response = getJsonData("mock/json/user/me.json")
-        val response = Response.success(User(0, "iaia"))
-        return delegate.returningResponse(response).meAsync()
+        return Response.success(User(123, "iaia"))
+        // val response = getJsonData("mock/json/user/me.json")
+        // val response = Response.success(User(0, "iaia"))
+        // return delegate.returningResponse(response).meAsync()
     }
 
     private fun getJsonData(jsonFilePath: String): String =

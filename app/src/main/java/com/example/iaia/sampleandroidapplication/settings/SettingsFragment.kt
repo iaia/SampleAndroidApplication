@@ -12,24 +12,20 @@ import com.example.iaia.sampleandroidapplication.databinding.FragmentSettingsBin
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsFragment : Fragment() {
-    companion object {
-        fun newInstance() = SettingsFragment()
-    }
-
     private val model: SettingsViewModel by viewModel()
     private lateinit var binding: FragmentSettingsBinding
     private lateinit var controller: ItemController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
+        controller = ItemController()
+        binding.ervSettings.adapter = controller.adapter
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         binding.viewModel = model
-        controller = ItemController()
-        binding.ervSettings.adapter = controller.adapter
 
         model.items.observe(this, Observer {
             controller.setData(it)
