@@ -21,14 +21,14 @@ android {
         getByName("debug") {
             isDebuggable = true
 
-            buildConfigField("String", "DUMMY_API_BASE_URL", "\"http://dummy.restapiexample.com/\"")
+            buildConfigField("String", "DUMMY_API_BASE_URL", "\"http://dummy.restapiexample.com/api/v1/\"")
             buildConfigField("String", "EXAMPLE_API_BASE_URL", "\"http://dev.example.com/\"")
         }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 
-            buildConfigField("String", "DUMMY_API_BASE_URL", "\"http://dummy.restapiexample.com/\"")
+            buildConfigField("String", "DUMMY_API_BASE_URL", "\"http://dummy.restapiexample.com/api/v1/\"")
             buildConfigField("String", "EXAMPLE_API_BASE_URL", "\"http://example.com/\"")
         }
     }

@@ -2,6 +2,8 @@ package com.example.iaia.sampleandroidapplication.di
 
 import com.example.iaia.data.remote.example.api.DummyApiClient
 import com.example.iaia.data.remote.example.api.ExampleApiClient
+import com.example.iaia.data.repository.EmployeeRepository
+import com.example.iaia.data.repository.EmployeeRepositoryImpl
 import com.example.iaia.sampleandroidapplication.data.repository.UserRepository
 import com.example.iaia.sampleandroidapplication.data.repository.UserRepositoryImpl
 import com.example.iaia.sampleandroidapplication.feature.camera.CameraViewModel
@@ -17,7 +19,7 @@ val viewModelModule = module {
     viewModel { SplashViewModel() }
     viewModel { MainViewModel() }
     viewModel { SettingsViewModel(get()) }
-    viewModel { DummyViewModel() }
+    viewModel { DummyViewModel(get()) }
 }
 
 val fragmentViewModelModule = module {
@@ -35,4 +37,5 @@ val mockApiModule = module {
 
 val repositoryModule = module {
     single { UserRepositoryImpl(get()) as UserRepository }
+    single { EmployeeRepositoryImpl(get()) as EmployeeRepository }
 }
