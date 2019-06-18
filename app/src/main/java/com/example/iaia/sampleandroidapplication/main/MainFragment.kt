@@ -54,6 +54,7 @@ class MainFragment : Fragment() {
                 Command.GoToSettings -> goToNext(R.id.action_mainFragment_to_settingsFragment)
                 Command.GoToDummy -> goToNext(R.id.action_mainFragment_to_dummyFragment)
             }
+            model.command.postValue(null)
         })
 
         model.init()

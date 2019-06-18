@@ -5,15 +5,30 @@
 
     <fragment android:id="@+id/mainFragment" android:name="com.example.iaia.sampleandroidapplication.main.MainFragment"
         android:label="MainFragment">
-        <action android:id="@+id/action_mainFragment_to_cameraFragment" app:destination="@id/cameraFragment" />
-        <action android:id="@+id/action_mainFragment_to_settingsFragment" app:destination="@id/settingsFragment" />
-        <action android:id="@+id/action_mainFragment_to_dummyFragment" app:destination="@id/dummyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment"
+            app:popUpTo="@id/mainFragment"
+        />
+        <action
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:popUpTo="@id/mainFragment"
+        />
+        <action
+            android:id="@+id/action_mainFragment_to_dummyFragment"
+            app:destination="@id/dummyFragment"
+            app:popUpTo="@id/mainFragment"
+        />
     </fragment>
     <fragment android:id="@+id/cameraFragment"
-        android:name="com.example.iaia.sampleandroidapplication.camera.CameraFragment" android:label="CameraFragment" />
+        android:name="com.example.iaia.sampleandroidapplication.camera.CameraFragment" android:label="CameraFragment">
+    </fragment>
     <fragment android:id="@+id/dummyFragment"
-        android:name="com.example.iaia.sampleandroidapplication.dummy.DummyFragment" android:label="DummyFragment" />
+        android:name="com.example.iaia.sampleandroidapplication.dummy.DummyFragment" android:label="DummyFragment">
+    </fragment>
     <fragment android:id="@+id/settingsFragment"
         android:name="com.example.iaia.sampleandroidapplication.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment">
+    </fragment>
 </navigation>
