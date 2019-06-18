@@ -16,13 +16,13 @@ import org.koin.dsl.module
 val viewModelModule = module {
     viewModel { SplashViewModel() }
     viewModel { MainViewModel() }
-    viewModel { CameraViewModel() }
     viewModel { SettingsViewModel(get()) }
     viewModel { DummyViewModel() }
 }
 
 val fragmentViewModelModule = module {
     viewModel { MainFragmentViewModel() }
+    viewModel { CameraViewModel() }
 }
 
 val apiModule = module {

@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.iaia.sampleandroidapplication.R
-import com.example.iaia.sampleandroidapplication.camera.CameraActivity
+import com.example.iaia.sampleandroidapplication.camera.CameraFragment
 import com.example.iaia.sampleandroidapplication.databinding.FragmentMainBinding
 import com.example.iaia.sampleandroidapplication.dummy.DummyActivity
 import com.example.iaia.sampleandroidapplication.settings.SettingsActivity
@@ -55,7 +55,7 @@ class MainFragment : Fragment() {
         })
         model.command.observe(viewLifecycleOwner, Observer {
             when (it) {
-                Command.GoToCamera -> startActivity(CameraActivity.createIntent(requireActivity()))
+                Command.GoToCamera -> CameraFragment.newInstance()
                 Command.GoToLicense -> startActivity(Intent(requireActivity(), OssLicensesMenuActivity::class.java))
                 Command.GoToSettings -> startActivity(SettingsActivity.createIntent(requireActivity()))
                 Command.GoToDummy -> startActivity(DummyActivity.createIntent(requireActivity()))

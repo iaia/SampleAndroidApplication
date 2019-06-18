@@ -29,5 +29,13 @@ class MainActivity : AppCompatActivity() {
             it.addToBackStack(null)
             it.commit()
         }
+
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        val toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

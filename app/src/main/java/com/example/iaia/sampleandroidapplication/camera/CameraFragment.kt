@@ -1,8 +1,8 @@
 package com.example.iaia.sampleandroidapplication.camera
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Matrix
 import android.hardware.display.DisplayManager
 import android.os.Bundle
@@ -10,76 +10,74 @@ import android.util.DisplayMetrics
 import android.util.Log
 import android.util.Rational
 import android.util.Size
-import android.view.Surface
-import android.view.TextureView
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.*
+import androidx.camera.core.CameraX.bindToLifecycle
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureConfig
+import androidx.camera.core.Preview
+import androidx.camera.core.PreviewConfig
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.iaia.sampleandroidapplication.R
-import com.example.iaia.sampleandroidapplication.databinding.ActivityCameraBinding
+import com.example.iaia.sampleandroidapplication.databinding.FragmentCameraBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.RuntimePermissions
 import java.io.File
 
 @RuntimePermissions
-class CameraActivity : AppCompatActivity() {
+class CameraFragment : Fragment() {
     companion object {
-        fun createIntent(context: Context) = Intent(context, CameraActivity::class.java)
+        fun newInstance() = CameraFragment()
     }
 
     private val model: CameraViewModel by viewModel()
-    private val binding by lazy {
-        DataBindingUtil.setContentView<ActivityCameraBinding>(
-            this,
-            R.layout.activity_camera
-        )
-    }
+    private lateinit var binding: FragmentCameraBinding
     private var preview: Preview? = null
     private var imageCapture: ImageCapture? = null
     private lateinit var viewFinder: TextureView
     private lateinit var displayManager: DisplayManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_camera, container, false)
+
         binding.viewModel = model
         viewFinder = binding.viewFinder
         displayManager = viewFinder.context
             .getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
-        displayManager.registerDisplayListener(displayListener, null)
         model.command.observe(this, Observer {
             when (it) {
                 Command.Capture -> capture()
             }
         })
-        initToolbar()
+
+        return binding.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        displayManager.unregisterDisplayListener(displayListener)
-    }
-
-    override fun onStart() {
-        super.onStart()
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        displayManager.registerDisplayListener(displayListener, null)
         showCameraWithPermissionCheck()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        displayManager.unregisterDisplayListener(displayListener)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         onRequestPermissionsResult(requestCode, grantResults)
-    }
-
-    private fun initToolbar() {
-        val toolbar = binding.toolbar
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     /*
@@ -138,12 +136,12 @@ class CameraActivity : AppCompatActivity() {
         }
 
         imageCapture = ImageCapture(imageCaptureConfig)
-        CameraX.bindToLifecycle(this, preview, imageCapture)
+        bindToLifecycle(this, preview, imageCapture)
     }
 
     private fun capture() {
         val file = File(
-            externalMediaDirs.first(),
+            requireActivity().externalMediaDirs.first(),
             "${System.currentTimeMillis()}.jpg"
         )
         imageCapture?.takePicture(
@@ -154,7 +152,6 @@ class CameraActivity : AppCompatActivity() {
                     message: String, exc: Throwable?
                 ) {
                     val msg = "Photo capture failed: $message"
-                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
                     Log.e("CameraXApp", msg)
                     exc?.printStackTrace()
                 }
@@ -185,10 +182,10 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun previewSavedImage(file: File) {
-        val imageView = ImageView(this).apply {
+        val imageView = ImageView(requireContext()).apply {
             setImageURI(file.toUri())
         }
-        AlertDialog.Builder(this).apply {
+        AlertDialog.Builder(requireContext()).apply {
             setTitle("Preview")
             setView(imageView)
             create()
