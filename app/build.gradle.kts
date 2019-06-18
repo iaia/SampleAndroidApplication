@@ -57,6 +57,10 @@ dependencies {
     implementation("androidx.camera:camera-core:${Deps.camerax_version}")
     implementation("androidx.camera:camera-camera2:${Deps.camerax_version}")
 
+    // navigation
+    implementation("androidx.navigation:navigation-fragment:${Deps.nav_version}")
+    implementation("androidx.navigation:navigation-ui:${Deps.nav_version}")
+
     // room
     implementation("androidx.room:room-runtime:${Deps.room_version}")
     annotationProcessor("androidx.room:room-compiler:${Deps.room_version}")
