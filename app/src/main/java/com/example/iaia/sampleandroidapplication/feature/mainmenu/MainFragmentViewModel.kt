@@ -2,8 +2,8 @@ package com.example.iaia.sampleandroidapplication.feature.mainmenu
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.iaia.sampleandroidapplication.data.model.ItemKey
-import com.example.iaia.sampleandroidapplication.data.model.MainItem
+import com.example.iaia.data.model.ItemKey
+import com.example.iaia.data.model.MainItem
 
 class MainFragmentViewModel : ViewModel() {
     val command = MutableLiveData<Command>()

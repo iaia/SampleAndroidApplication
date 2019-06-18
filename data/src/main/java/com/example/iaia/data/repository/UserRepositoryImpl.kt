@@ -1,7 +1,7 @@
 package com.example.iaia.sampleandroidapplication.data.repository
 
-import com.example.iaia.sampleandroidapplication.data.model.User
-import com.example.iaia.sampleandroidapplication.remote.example.api.ExampleService
+import com.example.iaia.data.model.User
+import com.example.iaia.data.remote.example.api.ExampleService
 
 class UserRepositoryImpl(
     private val exampleService: ExampleService

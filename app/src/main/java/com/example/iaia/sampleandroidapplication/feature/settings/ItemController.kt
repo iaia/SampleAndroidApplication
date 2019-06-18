@@ -1,7 +1,7 @@
 package com.example.iaia.sampleandroidapplication.feature.settings
 
 import com.airbnb.epoxy.TypedEpoxyController
-import com.example.iaia.sampleandroidapplication.data.model.SettingItem
+import com.example.iaia.data.model.SettingItem
 import com.example.iaia.sampleandroidapplication.itemSetting
 
 class ItemController() : TypedEpoxyController<List<SettingItem>>() {

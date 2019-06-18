@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.data.model
+package com.example.iaia.data.model
 
 import kotlinx.serialization.Serializable
 

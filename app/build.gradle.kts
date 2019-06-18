@@ -3,7 +3,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
-    id("kotlinx-serialization")
     id("com.google.android.gms.oss-licenses-plugin")
 }
 
@@ -20,16 +19,10 @@ android {
     buildTypes {
         getByName("debug") {
             isDebuggable = true
-
-            buildConfigField("String", "DUMMY_API_BASE_URL", "\"http://dummy.restapiexample.com/\"")
-            buildConfigField("String", "EXAMPLE_API_BASE_URL", "\"http://dev.example.com/\"")
         }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-
-            buildConfigField("String", "DUMMY_API_BASE_URL", "\"http://dummy.restapiexample.com/\"")
-            buildConfigField("String", "EXAMPLE_API_BASE_URL", "\"http://example.com/\"")
         }
     }
     dataBinding {
@@ -42,6 +35,8 @@ kapt {
 }
 
 dependencies {
+    implementation(project(":data"))
+
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Deps.kotlin_version}")
@@ -89,14 +84,6 @@ dependencies {
     // license
     implementation("com.google.android.gms:play-services-oss-licenses:16.0.2")
 
-    // retrofit
-    implementation("com.squareup.retrofit2:retrofit:${Deps.retrofit_version}")
-    implementation("com.squareup.retrofit2:retrofit-mock:${Deps.retrofit_version}")
-
-    // kotlin-serialization
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Deps.kotlin_version}")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.11.0")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.4.0")
 
     // TODO: あとで入れるか考える
     // leakcanary, retrofit, crashlytics, espresso

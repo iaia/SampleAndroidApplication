@@ -1,7 +1,7 @@
 package com.example.iaia.sampleandroidapplication.feature.mainmenu
 
 import com.airbnb.epoxy.TypedEpoxyController
-import com.example.iaia.sampleandroidapplication.data.model.MainItem
+import com.example.iaia.data.model.MainItem
 import com.example.iaia.sampleandroidapplication.itemMain
 
 class ItemController(

@@ -1,7 +1,7 @@
-package com.example.iaia.sampleandroidapplication.remote.example.api
+package com.example.iaia.data.remote.example.api
 
 import android.content.Context
-import com.example.iaia.sampleandroidapplication.BuildConfig
+import com.example.iaia.data.BuildConfig
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType

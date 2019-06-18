@@ -3,7 +3,7 @@ package com.example.iaia.sampleandroidapplication.feature.settings
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.iaia.sampleandroidapplication.data.model.SettingItem
+import com.example.iaia.data.model.SettingItem
 import com.example.iaia.sampleandroidapplication.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
