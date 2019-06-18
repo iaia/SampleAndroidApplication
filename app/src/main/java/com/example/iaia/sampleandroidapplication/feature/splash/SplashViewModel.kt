@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.splash
+package com.example.iaia.sampleandroidapplication.feature.splash
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

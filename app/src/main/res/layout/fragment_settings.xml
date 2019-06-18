@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.iaia.sampleandroidapplication.settings.SettingsViewModel" />
+            type="com.example.iaia.sampleandroidapplication.feature.settings.SettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".settings.SettingsFragment">
+        tools:context=".feature.settings.SettingsFragment">
 
         <com.airbnb.epoxy.EpoxyRecyclerView
             android:id="@+id/erv_settings"

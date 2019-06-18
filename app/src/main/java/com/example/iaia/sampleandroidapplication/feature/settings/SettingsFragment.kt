@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.settings
+package com.example.iaia.sampleandroidapplication.feature.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater

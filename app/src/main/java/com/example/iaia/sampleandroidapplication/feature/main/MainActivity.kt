@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.main
+package com.example.iaia.sampleandroidapplication.feature.main
 
 import android.content.Context
 import android.content.Intent

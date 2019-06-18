@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph" app:startDestination="@id/mainFragment">
 
-    <fragment android:id="@+id/mainFragment" android:name="com.example.iaia.sampleandroidapplication.main.MainFragment"
+    <fragment android:id="@+id/mainFragment"
+        android:name="com.example.iaia.sampleandroidapplication.feature.mainmenu.MainFragment"
         android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_cameraFragment"
@@ -22,13 +23,15 @@
         />
     </fragment>
     <fragment android:id="@+id/cameraFragment"
-        android:name="com.example.iaia.sampleandroidapplication.camera.CameraFragment" android:label="CameraFragment">
+        android:name="com.example.iaia.sampleandroidapplication.feature.camera.CameraFragment"
+        android:label="CameraFragment">
     </fragment>
     <fragment android:id="@+id/dummyFragment"
-        android:name="com.example.iaia.sampleandroidapplication.dummy.DummyFragment" android:label="DummyFragment">
+        android:name="com.example.iaia.sampleandroidapplication.feature.dummy.DummyFragment"
+        android:label="DummyFragment">
     </fragment>
     <fragment android:id="@+id/settingsFragment"
-        android:name="com.example.iaia.sampleandroidapplication.settings.SettingsFragment"
+        android:name="com.example.iaia.sampleandroidapplication.feature.settings.SettingsFragment"
         android:label="SettingsFragment">
     </fragment>
 </navigation>

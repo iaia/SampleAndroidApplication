@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.iaia.sampleandroidapplication.main.MainViewModel" />
+            type="com.example.iaia.sampleandroidapplication.feature.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.MainActivity">
+        tools:context=".feature.main.MainActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

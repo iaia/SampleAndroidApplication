@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.iaia.sampleandroidapplication.main.MainFragmentViewModel" />
+            type="com.example.iaia.sampleandroidapplication.feature.mainmenu.MainFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.MainFragment">
+        tools:context=".feature.mainmenu.MainFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_main"

@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.camera
+package com.example.iaia.sampleandroidapplication.feature.camera
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

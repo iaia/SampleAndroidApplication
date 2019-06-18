@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.camera
+package com.example.iaia.sampleandroidapplication.feature.camera
 
 import android.Manifest
 import android.app.AlertDialog

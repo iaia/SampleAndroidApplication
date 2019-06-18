@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.iaia.sampleandroidapplication.camera.CameraViewModel" />
+            type="com.example.iaia.sampleandroidapplication.feature.camera.CameraViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".camera.CameraFragment">
+        tools:context=".feature.camera.CameraFragment">
 
         <TextureView
             android:id="@+id/view_finder"

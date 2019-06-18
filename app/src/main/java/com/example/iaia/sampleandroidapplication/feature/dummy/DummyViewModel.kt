@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.dummy
+package com.example.iaia.sampleandroidapplication.feature.dummy
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.splash
+package com.example.iaia.sampleandroidapplication.feature.splash
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.iaia.sampleandroidapplication.R
 import com.example.iaia.sampleandroidapplication.databinding.ActivitySplashBinding
-import com.example.iaia.sampleandroidapplication.main.MainActivity
+import com.example.iaia.sampleandroidapplication.feature.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashActivity : AppCompatActivity() {

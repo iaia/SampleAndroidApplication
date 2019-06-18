@@ -22,7 +22,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".splash.SplashActivity"
+            android:name="com.example.iaia.sampleandroidapplication.feature.splash.SplashActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +31,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".main.MainActivity" />
+        <activity android:name="com.example.iaia.sampleandroidapplication.feature.main.MainActivity" />
     </application>
 </manifest>

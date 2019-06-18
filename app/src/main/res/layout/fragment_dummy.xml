@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.iaia.sampleandroidapplication.dummy.DummyViewModel" />
+            type="com.example.iaia.sampleandroidapplication.feature.dummy.DummyViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".dummy.DummyFragment">
+        tools:context=".feature.dummy.DummyFragment">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

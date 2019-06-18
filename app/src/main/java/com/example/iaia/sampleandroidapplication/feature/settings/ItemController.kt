@@ -1,4 +1,4 @@
-package com.example.iaia.sampleandroidapplication.settings
+package com.example.iaia.sampleandroidapplication.feature.settings
 
 import com.airbnb.epoxy.TypedEpoxyController
 import com.example.iaia.sampleandroidapplication.data.model.SettingItem
