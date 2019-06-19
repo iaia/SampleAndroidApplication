@@ -43,6 +43,16 @@ dependencies {
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 
+    // room
+    implementation("androidx.room:room-runtime:${Deps.room_version}")
+    implementation("androidx.room:room-ktx:${Deps.room_version}")
+    kapt("androidx.room:room-compiler:${Deps.room_version}")
+    androidTestImplementation("androidx.room:room-testing:${Deps.room_version}")
+
+    implementation("androidx.lifecycle:lifecycle-extensions:${Deps.arch_lifecycle_version}")
+    kapt("androidx.lifecycle:lifecycle-compiler:${Deps.arch_lifecycle_version}")
+    androidTestImplementation("androidx.arch.core:core-testing:${Deps.androidx_arch_version}")
+
     // kotlin-serialization
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Deps.kotlin_version}")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.11.0")
@@ -51,4 +61,8 @@ dependencies {
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:${Deps.retrofit_version}")
     implementation("com.squareup.retrofit2:retrofit-mock:${Deps.retrofit_version}")
+
+    // koin
+    implementation("org.koin:koin-androidx-scope:${Deps.koin_version}")
+    implementation("org.koin:koin-androidx-ext:${Deps.koin_version}")
 }
