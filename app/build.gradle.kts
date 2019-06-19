@@ -46,7 +46,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01")
     implementation("android.arch.lifecycle:extensions:1.1.1")
 
-    implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
+    implementation("androidx.lifecycle:lifecycle-extensions:${Deps.arch_lifecycle_version}")
 
     // camerax
     implementation("androidx.camera:camera-core:${Deps.camerax_version}")
@@ -55,11 +55,6 @@ dependencies {
     // navigation
     implementation("androidx.navigation:navigation-fragment:${Deps.nav_version}")
     implementation("androidx.navigation:navigation-ui:${Deps.nav_version}")
-
-    // room
-    implementation("androidx.room:room-runtime:${Deps.room_version}")
-    annotationProcessor("androidx.room:room-compiler:${Deps.room_version}")
-    androidTestImplementation("androidx.room:room-testing:${Deps.room_version}")
 
     testImplementation("junit:junit:4.12")
 
@@ -84,6 +79,10 @@ dependencies {
     // license
     implementation("com.google.android.gms:play-services-oss-licenses:16.0.2")
 
+    // room
+    implementation("androidx.room:room-runtime:${Deps.room_version}")
+    annotationProcessor("androidx.room:room-compiler:${Deps.room_version}")
+    androidTestImplementation("androidx.room:room-testing:${Deps.room_version}")
 
     // TODO: あとで入れるか考える
     // leakcanary, retrofit, crashlytics, espresso
