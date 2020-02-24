@@ -38,8 +38,8 @@ android {
 dependencies {
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
 
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    testImplementation("junit:junit:4.12")
+    implementation("androidx.appcompat:appcompat:1.1.0")
+    testImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 
